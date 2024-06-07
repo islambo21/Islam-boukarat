@@ -3,18 +3,18 @@
 clear
 
 # عرض النص الكبير باستخدام figlet
-figlet -f slant "ISLAM"
+figlet -f slant "ISLAM" | lolcat -p 1.0
 echo "NetHunter NetHunter"
 
 echo "[+] NetHunter for Termux installed successfully"
 echo
 echo "Enter your choice: "
-echo "[1] Start NetHunter cli"
-echo "[2] Set KeX password"
-echo "[3] Start NetHunter gui"
-echo "[4] Stop NetHunter gui"
-echo "[5] Run NetHunter as root"
-echo "[6] Shortcut for nethunter"
+echo "[1] Facebook"
+echo "[2] Instagram"
+echo "[3] Snapchat"
+echo "[4] Gmail"
+echo "[5] Telegram"
+echo "[6] Free Fair"
 echo
 
 read choice
@@ -22,27 +22,27 @@ read choice
 case $choice in
     1)
         clear
-        figlet -f slant "Facebook"
+        figlet -f slant "Facebook" | lolcat -p 1.0
         ;;
     2)
         clear
-        figlet -f slant "Instagram"
+        figlet -f slant "Instagram" | lolcat -p 1.0
         ;;
     3)
         clear
-        figlet -f slant "Snapchat"
+        figlet -f slant "Snapchat" | lolcat -p 1.0
         ;;
     4)
         clear
-        figlet -f slant "Gmail"
+        figlet -f slant "Gmail" | lolcat -p 1.0
         ;;
     5)
         clear
-        figlet -f slant "Telegram"
+        figlet -f slant "Telegram" | lolcat -p 1.0
         ;;
     6)
         clear
-        figlet -f slant "NetHunter"
+        figlet -f slant "Free Fair" | lolcat -p 1.0
         ;;
     *)
         echo "Invalid choice. Please try again."
