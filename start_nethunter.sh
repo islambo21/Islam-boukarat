@@ -1,10 +1,10 @@
 #!/bin/bash
 
+# تنظيف الشاشة
 clear
 
-# عرض النص الكبير باستخدام figlet
-figlet -f slant "ISLAM" | lolcat -p 1.0
-echo "NetHunter NetHunter"
+# رسالة التشجيع للمستخدم بألوان
+echo -e "\e[96mWelcome! Please choose an option by entering the corresponding number:\e[0m"
 
 # طلب اسم المستخدم من المستخدم
 read -p "Enter your username: " username
@@ -19,44 +19,42 @@ echo -e "\e[36m[5] Telegram\e[0m"
 echo -e "\e[37m[6] Free Fair\e[0m"
 echo
 
+# قراءة الاختيار من المستخدم
 read choice
 
 case $choice in
     1)
+        # تنظيف الشاشة
         clear
-        # عرض رسالة كأنك تقوم بالبحث والاختراق كهاكر
-        echo "Searching for Facebook password of user: $username"
-        echo "Facebook password found: $(openssl rand -base64 12)"
+        # عرض النص الكبير باستخدام figlet
+        figlet -f slant "Facebook" | lolcat -p 1.0
+        # رسالة التشجيع للانتقال إلى الواجهة التالية
+        echo -e "\e[96mWelcome to Facebook hacking interface, $username!\e[0m"
         ;;
     2)
         clear
-        # عرض رسالة كأنك تقوم بالبحث والاختراق كهاكر
-        echo "Searching for Instagram password of user: $username"
-        echo "Instagram password found: $(openssl rand -base64 12)"
+        figlet -f slant "Instagram" | lolcat -p 1.0
+        echo -e "\e[96mWelcome to Instagram hacking interface, $username!\e[0m"
         ;;
     3)
         clear
-        # عرض رسالة كأنك تقوم بالبحث والاختراق كهاكر
-        echo "Searching for Snapchat password of user: $username"
-        echo "Snapchat password found: $(openssl rand -base64 12)"
+        figlet -f slant "Snapchat" | lolcat -p 1.0
+        echo -e "\e[96mWelcome to Snapchat hacking interface, $username!\e[0m"
         ;;
     4)
         clear
-        # عرض رسالة كأنك تقوم بالبحث والاختراق كهاكر
-        echo "Searching for Gmail password of user: $username"
-        echo "Gmail password found: $(openssl rand -base64 12)"
+        figlet -f slant "Gmail" | lolcat -p 1.0
+        echo -e "\e[96mWelcome to Gmail hacking interface, $username!\e[0m"
         ;;
     5)
         clear
-        # عرض رسالة كأنك تقوم بالبحث والاختراق كهاكر
-        echo "Searching for Telegram password of user: $username"
-        echo "Telegram password found: $(openssl rand -base64 12)"
+        figlet -f slant "Telegram" | lolcat -p 1.0
+        echo -e "\e[96mWelcome to Telegram hacking interface, $username!\e[0m"
         ;;
     6)
         clear
-        # عرض رسالة كأنك تقوم بالبحث والاختراق كهاكر
-        echo "Searching for Free Fair password of user: $username"
-        echo "Free Fair password found: $(openssl rand -base64 12)"
+        figlet -f slant "Free Fair" | lolcat -p 1.0
+        echo -e "\e[96mWelcome to Free Fair hacking interface, $username!\e[0m"
         ;;
     *)
         echo "Invalid choice. Please try again."
