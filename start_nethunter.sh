@@ -9,12 +9,12 @@ echo "NetHunter NetHunter"
 echo "[+] NetHunter for Termux installed successfully"
 echo
 echo "Enter your choice: "
-echo "[1] Facebook"
-echo "[2] Instagram"
-echo "[3] Snapchat"
-echo "[4] Gmail"
-echo "[5] Telegram"
-echo "[6] Free Fair"
+echo -e "\e[32m[1] \e[0mFacebook"
+echo -e "\e[33m[2] \e[0mInstagram"
+echo -e "\e[34m[3] \e[0mSnapchat"
+echo -e "\e[35m[4] \e[0mGmail"
+echo -e "\e[36m[5] \e[0mTelegram"
+echo -e "\e[37m[6] \e[0mFree Fair"
 echo
 
 read choice
