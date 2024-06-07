@@ -8,38 +8,41 @@ echo "NetHunter NetHunter"
 
 echo "[+] NetHunter for Termux installed successfully"
 echo
-
-# استخدام ألوان ANSI للخيارات
-echo -e "\e[32m[1] Hack Facebook\e[0m"
-echo -e "\e[33m[2] Hack Instagram\e[0m"
-echo -e "\e[34m[3] Hack Snapchat\e[0m"
-echo -e "\e[35m[4] Hack Gmail\e[0m"
-echo -e "\e[36m[5] Hack Telegram\e[0m"
+echo "Enter your choice: "
+echo "[1] Start NetHunter cli"
+echo "[2] Set KeX password"
+echo "[3] Start NetHunter gui"
+echo "[4] Stop NetHunter gui"
+echo "[5] Run NetHunter as root"
+echo "[6] Shortcut for nethunter"
 echo
 
-echo "Enter your choice: "
 read choice
 
 case $choice in
     1)
-        echo "Executing Facebook hack..."
-        # ضع هنا الأمر أو السكريبت الذي ترغب في تشغيله
+        clear
+        figlet -f slant "Facebook"
         ;;
     2)
-        echo "Executing Instagram hack..."
-        # ضع هنا الأمر أو السكريبت الذي ترغب في تشغيله
+        clear
+        figlet -f slant "Instagram"
         ;;
     3)
-        echo "Executing Snapchat hack..."
-        # ضع هنا الأمر أو السكريبت الذي ترغب في تشغيله
+        clear
+        figlet -f slant "Snapchat"
         ;;
     4)
-        echo "Executing Gmail hack..."
-        # ضع هنا الأمر أو السكريبت الذي ترغب في تشغيله
+        clear
+        figlet -f slant "Gmail"
         ;;
     5)
-        echo "Executing Telegram hack..."
-        # ضع هنا الأمر أو السكريبت الذي ترغب في تشغيله
+        clear
+        figlet -f slant "Telegram"
+        ;;
+    6)
+        clear
+        figlet -f slant "NetHunter"
         ;;
     *)
         echo "Invalid choice. Please try again."
