@@ -2,13 +2,16 @@
 
 clear
 
-# عرض النص الكبير باستخدام figlet
+# عرض النص الكبير باستخدام figlet مع تغيير لونه
 figlet -f slant "ISLAM" | lolcat -p 1.0
 echo "NetHunter NetHunter"
 
-echo "[+] NetHunter for Termux installed successfully"
+# طباعة الرسالة النصية بلون مختلف
+echo -e "\e[35m[+] \e[0mNetHunter for Termux installed successfully"
 echo
-echo "Enter your choice: "
+
+# طباعة الخيارات مع تغيير لونها
+echo -e "\e[32mEnter your choice: \e[0m"
 echo -e "\e[32m[1] \e[0mFacebook"
 echo -e "\e[33m[2] \e[0mInstagram"
 echo -e "\e[34m[3] \e[0mSnapchat"
@@ -17,7 +20,7 @@ echo -e "\e[36m[5] \e[0mTelegram"
 echo -e "\e[37m[6] \e[0mFree Fair"
 echo
 
-read choice
+read -p $'\e[32mEnter your choice: \e[0m' choice
 
 case $choice in
     1)
@@ -45,6 +48,6 @@ case $choice in
         figlet -f slant "Free Fair" | lolcat -p 1.0
         ;;
     *)
-        echo "Invalid choice. Please try again."
+        echo -e "\e[31mInvalid choice. Please try again.\e[0m"
         ;;
 esac
