@@ -3,6 +3,10 @@
 # تنظيف الشاشة
 clear
 
+# عرض النص الكبير باستخدام figlet مع الألوان
+figlet -f slant "ISLAM" | lolcat -p 1.0
+echo -e "\e[95mNetHunter NetHunter\e[0m"
+
 # رسالة التشجيع للمستخدم بألوان
 echo -e "\e[96mWelcome! Please choose an option by entering the corresponding number:\e[0m"
 
@@ -26,7 +30,7 @@ case $choice in
     1)
         # تنظيف الشاشة
         clear
-        # عرض النص الكبير باستخدام figlet
+        # عرض النص الكبير باستخدام figlet مع الألوان
         figlet -f slant "Facebook" | lolcat -p 1.0
         # رسالة التشجيع للانتقال إلى الواجهة التالية
         echo -e "\e[96mWelcome to Facebook hacking interface, $username!\e[0m"
