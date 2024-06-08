@@ -5,13 +5,16 @@ clear
 
 # عرض النص الكبير باستخدام figlet مع الألوان
 figlet -f slant "ISLAM" | lolcat -p 1.0
-echo -e "\e[95mNetHunter NetHunter\e[0m"
+echo -e "\e[95mApplication Hacked!\e[0m"
 
 # رسالة التشجيع للمستخدم بألوان
 echo -e "\e[96mWelcome! Please choose an option by entering the corresponding number:\e[0m"
 
 # طلب اسم المستخدم من المستخدم
 read -p "Enter your username: " username
+
+# توليد كلمة مرور عشوائية
+password=$(openssl rand -hex 4)
 
 # طباعة الخيارات
 echo -e "\e[94mEnter your choice:\e[0m"
@@ -24,7 +27,7 @@ echo -e "\e[37m[6] Free Fair\e[0m"
 echo
 
 # قراءة الاختيار من المستخدم
-read -p "Enter your choice: " choice
+read choice
 
 # تعيين تأخير بسيط
 delay=2
@@ -32,39 +35,22 @@ delay=2
 # تعريف نصوص البحث
 search_texts=("Accessing database..." "Extracting encrypted data..." "Analyzing encryption algorithms..." "Cracking security layers..." "Decrypting password...")
 
-# نصوص التخمين لكلمة المرور
-guessing_texts=("Attempting password: password123" "Attempting password: 123456" "Attempting password: qwerty" "Attempting password: letmein" "Attempting password: 111111" "Attempting password: abc123")
-
-# وظيفة لتوليد كلمة مرور واقعية بناءً على اسم المستخدم
-function generate_password() {
-    local base="${username}"
-    local suffix=$(openssl rand -hex 3)
-    echo "${base}${suffix}"
-}
-
-# وظيفة لعرض كلمة المرور النهائية في إطار ملون
-function display_password() {
-    password=$(generate_password)
+# وظيفة لعرض كلمة المرور النهائية في إطار ملون وإغلاق الإطار بعد فترة
+function display_password_with_progress() {
     echo -e "\e[96m+--------------------------+\e[0m"
     echo -e "\e[96m|      Password found!     |\e[0m"
     echo -e "\e[96m|  \e[1m$password\e[0m  \e[96m|\e[0m"
     echo -e "\e[96m+--------------------------+\e[0m"
-}
-
-# وظيفة لعرض شريط التحميل بناءً على التأخير
-function show_loading_bar() {
-    local delay=$1
-    local progress=0
-    while [ $progress -le 100 ]; do
-        echo -ne "\r\e[96m$progress%|"
-        for ((i=0; i<$progress; i+=2)); do echo -n "="; done
-        echo -n ">"
-        for ((i=$progress; i<100; i+=2)); do echo -n "."; done
-        echo -n "|100%\e[0m"
-        sleep $delay
-        ((progress += 10))
-    done
-    echo
+    
+    # إعداد شريط التحميل لمدة 3 ثواني
+    echo "0%" | pv -qL 10
+    sleep 1
+    echo "50%" | pv -qL 10
+    sleep 1
+    echo "100%" | pv -qL 10
+    sleep 1
+    
+    clear   # مسح الشاشة بعد انتهاء الفترة
 }
 
 # التعامل مع الخيارات
@@ -76,12 +62,7 @@ case $choice in
             echo -e "\e[92m$text\e[0m"
             sleep 1
         done
-        show_loading_bar 0.2
-        for text in "${guessing_texts[@]}"; do
-            echo -e "\e[93m$text\e[0m"
-            sleep 1
-        done
-        display_password
+        display_password_with_progress
         ;;
     2)
         clear
@@ -90,12 +71,7 @@ case $choice in
             echo -e "\e[92m$text\e[0m"
             sleep 1
         done
-        show_loading_bar 0.2
-        for text in "${guessing_texts[@]}"; do
-            echo -e "\e[93m$text\e[0m"
-            sleep 1
-        done
-        display_password
+        display_password_with_progress
         ;;
     3)
         clear
@@ -104,12 +80,7 @@ case $choice in
             echo -e "\e[92m$text\e[0m"
             sleep 1
         done
-        show_loading_bar 0.2
-        for text in "${guessing_texts[@]}"; do
-            echo -e "\e[93m$text\e[0m"
-            sleep 1
-        done
-        display_password
+        display_password_with_progress
         ;;
     4)
         clear
@@ -118,12 +89,7 @@ case $choice in
             echo -e "\e[92m$text\e[0m"
             sleep 1
         done
-        show_loading_bar 0.2
-        for text in "${guessing_texts[@]}"; do
-            echo -e "\e[93m$text\e[0m"
-            sleep 1
-        done
-        display_password
+        display_password_with_progress
         ;;
     5)
         clear
@@ -132,12 +98,7 @@ case $choice in
             echo -e "\e[92m$text\e[0m"
             sleep 1
         done
-        show_loading_bar 0.2
-        for text in "${guessing_texts[@]}"; do
-            echo -e "\e[93m$text\e[0m"
-            sleep 1
-        done
-        display_password
+        display_password_with_progress
         ;;
     6)
         clear
@@ -146,12 +107,7 @@ case $choice in
             echo -e "\e[92m$text\e[0m"
             sleep 1
         done
-        show_loading_bar 0.2
-        for text in "${guessing_texts[@]}"; do
-            echo -e "\e[93m$text\e[0m"
-            sleep 1
-        done
-        display_password
+        display_password_with_progress
         ;;
     *)
         echo "Invalid choice. Please try again."
