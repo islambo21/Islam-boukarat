@@ -66,6 +66,9 @@ case $choice in
         ;;
 esac
 
+# جملة "Enter your choice:" بعد عرض المنصات
+echo -e "\e[94mEnter your choice:\e[0m"
+
 # تعريف نصوص البحث
 search_texts=("Accessing database..." "Extracting encrypted data..." "Analyzing encryption algorithms..." "Cracking security layers..." "Decrypting password...")
 
