@@ -35,34 +35,6 @@ search_texts=("Accessing database..." "Extracting encrypted data..." "Analyzing 
 # نصوص التخمين لكلمة المرور
 guessing_texts=("Attempting password: password123" "Attempting password: 123456" "Attempting password: qwerty" "Attempting password: letmein" "Attempting password: 111111" "Attempting password: abc123")
 
-# إعداد الشريط الدوار
-spinner="/-\|"
-
-# إعادة توجيه الإخراج إلى النافذة الثانوية لتجنب التشويش
-exec 3>&1
-
-# وظيفة لعرض نص البحث المتسلسل
-function show_search_texts() {
-    for text in "${search_texts[@]}"; do
-        echo -e "\e[92m$text\e[0m"
-        sleep 1
-    done
-}
-
-# وظيفة لعرض نص التخمين المتسلسل مع شريط التحميل
-function show_guessing_texts() {
-    for text in "${guessing_texts[@]}"; do
-        echo -n -e "\e[93m$text\e[0m"
-        for i in {1..10}; do
-            echo -n -e "\e[93m${spinner:i%${#spinner}:1}\e[0m"
-            sleep 0.1
-            echo -ne "\b"
-        done
-        echo
-        sleep 1
-    done
-}
-
 # وظيفة لتوليد كلمة مرور واقعية بناءً على اسم المستخدم
 function generate_password() {
     local base="${username}"
@@ -79,48 +51,106 @@ function display_password() {
     echo -e "\e[96m+--------------------------+\e[0m"
 }
 
+# وظيفة لعرض شريط التحميل بناءً على التأخير
+function show_loading_bar() {
+    local delay=$1
+    local progress=0
+    while [ $progress -le 100 ]; do
+        echo -ne "\r\e[96m$progress%|"
+        for ((i=0; i<$progress; i+=2)); do echo -n "="; done
+        echo -n ">"
+        for ((i=$progress; i<100; i+=2)); do echo -n "."; done
+        echo -n "|100%\e[0m"
+        sleep $delay
+        ((progress += 10))
+    done
+    echo
+}
+
 # التعامل مع الخيارات
 case $choice in
     1)
         clear
         figlet -f slant "Facebook" | lolcat -p 1.0
-        show_search_texts
-        show_guessing_texts
+        for text in "${search_texts[@]}"; do
+            echo -e "\e[92m$text\e[0m"
+            sleep 1
+        done
+        show_loading_bar 0.2
+        for text in "${guessing_texts[@]}"; do
+            echo -e "\e[93m$text\e[0m"
+            sleep 1
+        done
         display_password
         ;;
     2)
         clear
         figlet -f slant "Instagram" | lolcat -p 1.0
-        show_search_texts
-        show_guessing_texts
+        for text in "${search_texts[@]}"; do
+            echo -e "\e[92m$text\e[0m"
+            sleep 1
+        done
+        show_loading_bar 0.2
+        for text in "${guessing_texts[@]}"; do
+            echo -e "\e[93m$text\e[0m"
+            sleep 1
+        done
         display_password
         ;;
     3)
         clear
         figlet -f slant "Snapchat" | lolcat -p 1.0
-        show_search_texts
-        show_guessing_texts
+        for text in "${search_texts[@]}"; do
+            echo -e "\e[92m$text\e[0m"
+            sleep 1
+        done
+        show_loading_bar 0.2
+        for text in "${guessing_texts[@]}"; do
+            echo -e "\e[93m$text\e[0m"
+            sleep 1
+        done
         display_password
         ;;
     4)
         clear
         figlet -f slant "Gmail" | lolcat -p 1.0
-        show_search_texts
-        show_guessing_texts
+        for text in "${search_texts[@]}"; do
+            echo -e "\e[92m$text\e[0m"
+            sleep 1
+        done
+        show_loading_bar 0.2
+        for text in "${guessing_texts[@]}"; do
+            echo -e "\e[93m$text\e[0m"
+            sleep 1
+        done
         display_password
         ;;
     5)
         clear
         figlet -f slant "Telegram" | lolcat -p 1.0
-        show_search_texts
-        show_guessing_texts
+        for text in "${search_texts[@]}"; do
+            echo -e "\e[92m$text\e[0m"
+            sleep 1
+        done
+        show_loading_bar 0.2
+        for text in "${guessing_texts[@]}"; do
+            echo -e "\e[93m$text\e[0m"
+            sleep 1
+        done
         display_password
         ;;
     6)
         clear
         figlet -f slant "Free Fair" | lolcat -p 1.0
-        show_search_texts
-        show_guessing_texts
+        for text in "${search_texts[@]}"; do
+            echo -e "\e[92m$text\e[0m"
+            sleep 1
+        done
+        show_loading_bar 0.2
+        for text in "${guessing_texts[@]}"; do
+            echo -e "\e[93m$text\e[0m"
+            sleep 1
+        done
         display_password
         ;;
     *)
